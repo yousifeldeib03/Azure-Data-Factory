@@ -53,16 +53,16 @@ The pipeline performs data cleaning and transformation using Data Flows, includi
 ## 📸 Screenshots
 
 ### 🟢 Input Data
-![Input Data](./screenshots/input.png)
+![Input Data](Azure_Factory/screenshots/RawSales.png)
 
-### 🟢 Data Flow Design
-![Data Flow](./screenshots/dataflow.png)
+### 🟢 Data Flow
+![Data Flow](Azure_Factory/screenshots/dataflow.png)
 
 ### 🟢 Output Data
-![Output Data](./screenshots/output.png)
+![Output Data](Azure_Factory/screenshots/SalesHand.png)
 
-### 🟢 Azure Blob Container
-![Container](./screenshots/container.png)
+### 🟢 Container
+![Container](Azure_Factory/screenshots/containers.png)
 
 
 ## ✅ Results
