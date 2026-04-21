@@ -1,42 +1,81 @@
-# 📊 Sales Data ETL Pipeline using Azure Data Factory
+# Azure Data Factory ETL Pipeline – Sales Data Cleaning
 
-## 📌 Overview
-This project demonstrates an end-to-end ETL pipeline using Azure Data Factory to clean and process raw sales data stored in CSV format.
+## 📖 Overview
+This project implements an ETL pipeline using Azure Data Factory to process raw sales data stored in Azure Blob Storage.
+
+The pipeline performs data cleaning and transformation using Data Flows, including:
+- Handling missing values
+- Standardizing text fields
+- Converting data types
+- Fixing negative values
 
 ---
 
 ## 🏗️ Architecture
-- Source: CSV file in Azure Blob Storage  
-- Processing: Azure Data Factory (Mapping Data Flow)  
-- Output: Cleaned data stored in Blob Storage  
+
+1. Azure Resource Group
+2. Azure Storage Account
+3. Blob Container (stores input/output CSV files)
+4. Azure Data Factory
+5. Data Flow (for transformations)
+6. Sink (writes cleaned data back to storage)
 
 ---
 
-## ⚙️ Steps
-1. Created Resource Group  
-2. Created Storage Account  
-3. Created container and uploaded `sales.csv`  
-4. Created Azure Data Factory  
-5. Built Data Flow  
-6. Applied transformations using Derived Column  
-7. Stored output in container  
+## ⚙️ Data Processing Steps
+
+### 🔹 Source
+- Input file: `sales.csv`
+- Stored in Azure Blob Storage
 
 ---
 
-## 🔄 Transformations
+### 🔹 Transformations (Derived Columns)
 
-- `order_id` → NULL → -1  
-- `order_date` → NULL → 'Null'  
-- `customer_id` → NULL → 'Null', converted to uppercase  
-- `product` → NULL → 'Null'  
-- `category` → standardized to 'Electronics'  
-- `quantity` → NULL → 0, negative → positive  
-- `unit_price` → NULL → 0, negative → positive  
-- `total_amount` → NULL → 0, negative → positive  
+| Column        | Transformation |
+|--------------|---------------|
+| order_id     | `iif(isNull(order_id), -1, toInteger(order_id))` |
+| order_date   | `iif(isNull(order_date), 'Null', order_date)` |
+| customer_id  | `iif(isNull(customer_id), 'Null', upper(customer_id))` |
+| product      | `iif(isNull(product), 'Null', product)` |
+| category     | `iif(isNull(category), 'Electronics', 'Electronics')` |
+| quantity     | `iif(isNull(quantity), 0, abs(toInteger(quantity)))` |
+| unit_price   | `iif(isNull(unit_price), 0, abs(toInteger(unit_price)))` |
+| Total Amount | `iif(isNull({Total Amount}), 0, abs(toInteger({Total Amount})))` |
 
 ---
 
-## 💻 Example Logic
+### 🔹 Sink
+- Cleaned data is written back to Azure Blob Storage container
 
-```sql
-iif(isNull(quantity), 0, abs(toInteger(quantity)))
+---
+
+## 📸 Screenshots
+
+### 🟢 Input Data
+![Input Data](./screenshots/input.png)
+
+### 🟢 Data Flow Design
+![Data Flow](./screenshots/dataflow.png)
+
+### 🟢 Output Data
+![Output Data](./screenshots/output.png)
+
+### 🟢 Azure Blob Container
+![Container](./screenshots/container.png)
+
+
+## ✅ Results
+- Null values handled
+- Negative values converted to positive
+- Text standardized
+- Clean dataset generated
+
+---
+
+## 📌 Notes
+- Ensure correct column mapping in Data Flow
+- Use Debug mode before publishing
+- Verify data types in sink
+
+---
