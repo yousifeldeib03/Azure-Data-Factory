@@ -1,0 +1,24 @@
+{
+    "now": "2026-04-21T20:11:10.286Z",
+    "perfNow": 13338445.100000001,
+    "diagnosticCorrelation": "7565b5bc-1910-4416-ab87-5b03de0e529d",
+    "source": "DownloadSupportFiles",
+    "environment": {
+        "productName": "adf",
+        "buildVersion": "1.0.032026.2",
+        "environmentType": 3,
+        "resourceName": "yousiffstorageeeeee12",
+        "resourceRegion": "switzerlandnorth",
+        "resourceGroup": "yousiffffstorageee1234",
+        "subscriptionId": "4e490009-aadd-4bdf-9a5a-061c4dc00cca",
+        "sessionId": "qGoV8pkTH6IpFdqX73Go0d",
+        "operationId": "",
+        "gitType": "live",
+        "loggingKey": "ca2a8c21-f5d4-422a-a631-fba650d7208c"
+    },
+    "additionalInfo": {
+        "selectedResource": "dataflow1",
+        "selectedResourceType": "dataflow",
+        "dataFlowSessionId": "2e5802a9-bbb6-4631-8139-c078f4838bd0"
+    }
+}
