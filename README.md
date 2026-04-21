@@ -1,54 +1,42 @@
 # 📊 Sales Data ETL Pipeline using Azure Data Factory
 
 ## 📌 Overview
-This project demonstrates an end-to-end ETL (Extract, Transform, Load) pipeline built using Azure Data Factory. The pipeline processes raw sales data stored in CSV format, applies data cleaning and transformation rules, and outputs a standardized dataset to Azure Blob Storage.
+This project demonstrates an end-to-end ETL pipeline using Azure Data Factory to clean and process raw sales data stored in CSV format.
 
 ---
 
 ## 🏗️ Architecture
-- **Source:** CSV file stored in Azure Blob Storage
-- **Processing:** Azure Data Factory (Mapping Data Flow)
-- **Sink:** Cleaned data stored in Azure Blob Storage container
+- Source: CSV file in Azure Blob Storage  
+- Processing: Azure Data Factory (Mapping Data Flow)  
+- Output: Cleaned data stored in Blob Storage  
 
 ---
 
-## ⚙️ Steps Implemented
-
-### 1. Azure Setup
-- Created a Resource Group
-- Created a Storage Account
-- Created a container
-- Uploaded `sales.csv`
-- Created Azure Data Factory instance
-
----
-
-### 2. Data Flow Design
-- Built a Mapping Data Flow
-- Connected source dataset (CSV file)
-- Applied multiple Derived Column transformations
-- Loaded processed data into sink container
+## ⚙️ Steps
+1. Created Resource Group  
+2. Created Storage Account  
+3. Created container and uploaded `sales.csv`  
+4. Created Azure Data Factory  
+5. Built Data Flow  
+6. Applied transformations using Derived Column  
+7. Stored output in container  
 
 ---
 
-## 🔄 Data Transformations
+## 🔄 Transformations
 
-### ✔️ Data Cleaning & Standardization
-
-| Column | Transformation |
-|--------|---------------|
-| **order_id** | Replace NULL with -1 and convert to integer |
-| **order_date** | Replace NULL with 'Null' |
-| **customer_id** | Replace NULL with 'Null' and convert to uppercase |
-| **product** | Replace NULL with 'Null' |
-| **category** | Standardized all values to 'Electronics' |
-| **quantity** | Replace NULL with 0 and convert negative values to positive |
-| **unit_price** | Replace NULL with 0 and convert negative values to positive |
-| **total_amount** | Replace NULL with 0 and convert negative values to positive |
+- `order_id` → NULL → -1  
+- `order_date` → NULL → 'Null'  
+- `customer_id` → NULL → 'Null', converted to uppercase  
+- `product` → NULL → 'Null'  
+- `category` → standardized to 'Electronics'  
+- `quantity` → NULL → 0, negative → positive  
+- `unit_price` → NULL → 0, negative → positive  
+- `total_amount` → NULL → 0, negative → positive  
 
 ---
 
-## 🧠 Example Transformation Logic
+## 💻 Example Logic
 
 ```sql
 iif(isNull(quantity), 0, abs(toInteger(quantity)))
