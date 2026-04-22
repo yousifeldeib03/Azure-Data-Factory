@@ -47,7 +47,7 @@ The pipeline performs data cleaning and transformation using Data Flows, includi
 ---
 
 ### 🔹 Sort 
-- sort data based on `order_id`
+- Sort data based on `order_id`
 
 ### 🔹 Sink
 - Cleaned data is written back to Azure Blob Storage container
