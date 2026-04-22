@@ -8,6 +8,7 @@ The pipeline performs data cleaning and transformation using Data Flows, includi
 - Standardizing text fields
 - Converting data types
 - Fixing negative values
+- sorting based on order_id
 
 ---
 
@@ -44,6 +45,9 @@ The pipeline performs data cleaning and transformation using Data Flows, includi
 | Total Amount | `iif(isNull({Total Amount}), 0, abs(toInteger({Total Amount})))` |
 
 ---
+
+### 🔹 Sort 
+- sort data based on `order_id`
 
 ### 🔹 Sink
 - Cleaned data is written back to Azure Blob Storage container
