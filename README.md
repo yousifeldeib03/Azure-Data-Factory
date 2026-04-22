@@ -8,7 +8,7 @@ The pipeline performs data cleaning and transformation using Data Flows, includi
 - Standardizing text fields
 - Converting data types
 - Fixing negative values
-- sorting based on order_id
+- Sorting based on order_id
 
 ---
 
