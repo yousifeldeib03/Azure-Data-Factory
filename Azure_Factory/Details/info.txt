@@ -1,0 +1,7 @@
+selected resource name:		dataflow1
+selected resource type:		dataflow
+factory name:			yousiffstorageeeeee12
+factory location:		switzerlandnorth
+subscription id:		4e490009-aadd-4bdf-9a5a-061c4dc00cca
+data flow session id:		bd0b9978-d30a-4d17-a133-c8c2649f9136
+time of download (UTC):		Wed, 22 Apr 2026 18:16:34 GMT
