@@ -59,7 +59,7 @@ The pipeline performs data cleaning and transformation using Data Flows, includi
 ![Data Flow](Azure_Factory/screenshots/dataflow.png)
 
 ### 🟢 Output Data
-![Output Data](Azure_Factory/screenshots/SalesHand.png)
+![Output Data](Azure_Factory/screenshots/Saleshand.png)
 
 ### 🟢 Container
 ![Container](Azure_Factory/screenshots/containers.png)
